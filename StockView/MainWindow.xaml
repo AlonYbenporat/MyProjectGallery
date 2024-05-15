@@ -1,0 +1,30 @@
+﻿<Window x:Class="StockView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid Margin="10">
+            <!-- Add your header content here -->
+            <TextBlock Text="Stock Data" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,18,0,0"/>
+        </Grid>
+
+        <DataGrid ItemsSource="{Binding Stocks}" AutoGenerateColumns="False" Margin="10,60,10,10">
+            <DataGrid.Columns>
+                <!-- Define Columns for Parameters -->
+                <DataGridTextColumn Header="symbol" Binding="{Binding Parameter1}"/>
+                <DataGridTextColumn Header="exchange" Binding="{Binding Parameter2}"/>
+                <DataGridTextColumn Header="datetime" Binding="{Binding Parameter3}"/>
+                <DataGridTextColumn Header="open" Binding="{Binding Parameter4}"/>
+                <DataGridTextColumn Header="close" Binding="{Binding Parameter5}"/>
+                <DataGridTextColumn Header="high" Binding="{Binding Parameter5}"/>
+                <DataGridTextColumn Header="low" Binding="{Binding Parameter5}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Green-Add-Button-PNG-Clipart.png" />
+    <None Remove="Images\TicTaToe.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\MemoryGame\MemoryGame.csproj" />
+    <ProjectReference Include="..\PersonManager\PersonManager.csproj" />
+    <ProjectReference Include="..\Tic-tac-Toe\Tic-tac-Toe.csproj" />
+    <ProjectReference Include="..\TicTacToe\TicTacToe.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Green-Add-Button-PNG-Clipart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\TicTaToe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

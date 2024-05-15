@@ -1,0 +1,33 @@
+﻿<Window x:Class="MyProjectGallery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyProjectGallery"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock
+                Text="Galary Project Created by Alon" 
+                FontSize=" 30"
+                TextAlignment="Center"
+                FontWeight="Bold"
+                Margin="10"
+                />
+
+            <TextBlock
+                Text=" Enjoy test my projects"
+                FontSize="20"
+                TextAlignment="Center"
+                />
+            <WrapPanel Name="ProjectPanel"
+                       Margin="10" 
+                       HorizontalAlignment="Center"
+                       >
+               
+             
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

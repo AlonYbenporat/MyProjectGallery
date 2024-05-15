@@ -1,0 +1,92 @@
+﻿[
+    {
+        "Id": 1,
+        "Name": "Teddy Bear",
+        "Price": 15.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 2,
+        "Name": "LEGO Set",
+        "Price": 29.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 3,
+        "Name": "Barbie Doll",
+        "Price": 19.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 4,
+        "Name": "Hot Wheels Cars",
+        "Price": 12.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 5,
+        "Name": "Play-Doh Set",
+        "Price": 9.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 6,
+        "Name": "Nerf Gun",
+        "Price": 24.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 7,
+        "Name": "Remote Control Car",
+        "Price": 39.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 8,
+        "Name": "Puzzle Set",
+        "Price": 17.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 9,
+        "Name": "Board Game",
+        "Price": 21.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 10,
+        "Name": "Action Figure",
+        "Price": 14.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 11,
+        "Name": "Dollhouse",
+        "Price": 49.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 12,
+        "Name": "Remote Control Drone",
+        "Price": 79.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 13,
+        "Name": "Stuffed Animal Set",
+        "Price": 22.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 14,
+        "Name": "Model Train Set",
+        "Price": 34.99,
+        "CategoryId": 1
+    },
+    {
+        "Id": 15,
+        "Name": "Building Blocks",
+        "Price": 16.99,
+        "CategoryId": 1
+    }
+]
