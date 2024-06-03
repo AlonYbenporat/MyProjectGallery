@@ -26,17 +26,143 @@ public partial class MainWindow : Window
         InitializeComponent();
         LoadProducts();
         AddButtons("Get All", GetAllMethod, GetAllSyntax);
-       
+        AddButtons("Get All Names", GetAllNamesMethod, GetAllNamesSyntax);
+        AddButtons("Get All New Obj", GetAllObjMethod, GetAllObjSyntax);
+        AddButtons("Get All New AnonObj", GetAllAnonMethod, GetAllAnonSyntax);
+
+        AddButtons("Order By", OrderByMethod, OrderBySyntax);
+        AddButtons("Use String Ext", UseStringExtension, UseStringExtension);
+
     }
 
-    private void GetAllMethod(object sender, RoutedEventArgs e)
+    private void UseStringExtension(object sender, RoutedEventArgs e)
     {
-        MessageBox.Show("Methode Clicked");
+        string result = StringExtensions.FirstLetterToupper("simon");
+        string result2 = "bob".FirstLetterToupper();
+        MessageBox.Show(result);
+        MessageBox.Show(result2);
+
+        if (2.IsEven())
+        {
+            MessageBox.Show("i am Even");
+        }
+        else
+        {
+            MessageBox.Show("I Am Odd");
+        }
+    }
+
+    private void OrderByMethod(object obj, RoutedEventArgs e)
+    {
+        var result =
+            rawListOfProducts
+            .OrderBy(product => product.CategoryId)
+            .ThenByDescending(product => product.Name)
+
+            .Select(product => product);
+            result.ReturnAWord();
+        
+    }
+    private void  OrderBySyntax(object sender,RoutedEventArgs e)
+    {
+        var result = 
+            from product in rawListOfProducts
+            orderby product.CategoryId, product.Name ascending
+            select product;
+        ResultDataGrid.ItemsSource = result;
+    }
+    private void GetAllAnonMethod(object sender, RoutedEventArgs e)
+    {
+        var result =
+               rawListOfProducts.Select(product => new 
+               {
+                   SomeName = product.Name
+
+               });
+        ResultDataGrid.ItemsSource = result;
+    }
+
+    private void GetAllAnonSyntax(object sender, RoutedEventArgs e)
+    {
+        var result =
+
+             from product in rawListOfProducts
+             select new 
+             {
+                 MyName = product.Name,
+
+
+             };
+        
+        ResultDataGrid.ItemsSource = result;
+
+
+    }
+    private void GetAllObjMethod(object sender, RoutedEventArgs e)
+    {
+       var result =
+              rawListOfProducts.Select(product => new ShortProduct
+              {
+                  MyName = product.Name
+
+              });
+              ResultDataGrid.ItemsSource = result;
+    }
+
+    private void GetAllObjSyntax(object sender, RoutedEventArgs e)
+    {
+        IEnumerable<ShortProduct> result =
+            
+             from product in rawListOfProducts
+             select new ShortProduct
+             {
+                MyName = product.Name,
+
+
+             };
+        //List<Product> listResult = result.ToList();
+        ResultDataGrid.ItemsSource = result;
+
+
+    }
+    public class ShortProduct
+    {
+        public string MyName { get; set; }
+    }
+    private void GetAllNamesMethod(object sender, RoutedEventArgs e)
+    {
+        IEnumerable<string> result =
+              rawListOfProducts.Select(product => product.Name);
+        List<string> listOfNames =result.ToList();
+        ResultDataGrid.ItemsSource = listOfNames;
+    }
+
+    private void GetAllNamesSyntax(object sender, RoutedEventArgs e)
+    {
+        IEnumerable<string> result =
+            from product in rawListOfProducts
+            select product.Name;
+        List<string>listOfNames = result.ToList();
+
+        ResultDataGrid.ItemsSource = result;
+    }
+
+        private void GetAllMethod(object sender, RoutedEventArgs e)
+    {
+        IEnumerable<Product> result =
+              rawListOfProducts.Select(product => product);
+              ResultDataGrid.ItemsSource = result;
     }
 
     private void GetAllSyntax(object sender, RoutedEventArgs e)
     {
-        var result = from product in  rawListOfProducts select product;
+       IEnumerable<Product> result = 
+            from product in  rawListOfProducts 
+            select product;
+        //List<Product> listResult = result.ToList();
+        ResultDataGrid.ItemsSource = result;
+
+
     }
 
     private void AddButtons(string name, RoutedEventHandler ClickMethod, RoutedEventHandler ClickSyntax)
@@ -67,14 +193,14 @@ public partial class MainWindow : Window
             Content = name + "(S)"
         };
         
-        btnSyntax.Click += ClickMethod;
+        btnSyntax.Click += ClickSyntax;
         stackPanel.Children.Add(btnSyntax);
     }
 
     private void LoadProducts()
     {
         string rawJson = File.ReadAllText("Products.json");
-        List <Product> products = JsonSerializer.Deserialize<List<Product>>(rawJson);
-        ResultDataGrid.ItemsSource = products;
+        rawListOfProducts = JsonSerializer.Deserialize<List<Product>>(rawJson);
+        //ResultDataGrid.ItemsSource = products;
     }
 }
